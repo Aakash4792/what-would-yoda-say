@@ -9,7 +9,11 @@ const updateUI = (text) =>{
     }
 
     disp.textContent = text;
-
+    const sp = new SpeechSynthesisUtterance(text);
+    [sp.voice] = speechSynthesis.getVoices();
+    sp.rate = 0.2;
+    sp.pitch = 0.3;
+    speechSynthesis.speak(sp);
     
 }
 const updateURL = async(inp) =>{
